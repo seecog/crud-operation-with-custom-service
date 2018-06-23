@@ -1,0 +1,20 @@
+<p>
+Name : <input [(ngModel)]="emp.name" class="form-control">  <br>
+Age : <input [(ngModel)]="emp.age"  class="form-control">  <br>
+Salary : <input [(ngModel)]="emp.sal"  class="form-control">  <br>
+<button [disabled]="save_stt" class="btn btn-success" *ngIf="btn_stt" (click)="saveEmployee()">Save</button> 
+<button class="btn btn-success" *ngIf="!btn_stt" (click)="updateEmployee()">Update</button>
+</p>
+
+<table class="table">
+  <th>Name</th><th>Age</th><th>Salary</th><th>Action</th>
+  <tr *ngFor="let x of emps">
+<td>{{x.data.name}}</td>
+<td>{{x.data.age}}</td>
+<td>{{x.data.sal}}</td>
+<td>
+  <button  class="btn btn-danger" (click)="removeEmp(x.id)">Delete</button>   
+  <button  class="btn btn-primary" (click)="editEmployee(x)">Edit</button> 
+</td>
+  </tr>
+</table>
